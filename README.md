@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# fakeReddit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Un'applicazione frontend realizzata con **React** e **Redux Toolkit** che riproduce alcune funzionalità di Reddit, consentendo agli utenti di cercare e visualizzare i post di diverse subreddit. Questo progetto utilizza chiamate asincrone per ottenere i dati dall'API pubblica di Reddit e permette la navigazione tra subreddit con un'interfaccia semplice e intuitiva.
 
-## Available Scripts
+## Funzionalità
 
-In the project directory, you can run:
+- Visualizzazione dei post di una subreddit selezionata.
+- Barra di ricerca per filtrare i post per titolo.
+- Sidebar per la selezione rapida di subreddit popolari.
+- Gestione dello stato globale dell'app con Redux Toolkit.
+- Stato di caricamento e gestione degli errori per le chiamate API.
 
-### `npm start`
+## Tecnologie Utilizzate
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Libreria per costruire l'interfaccia utente.
+- **Redux Toolkit**: Libreria per la gestione dello stato globale e funzioni asincrone.
+- **JavaScript**: Linguaggio di programmazione.
+- **CSS**: Styling dell'interfaccia.
+- **Fetch API**: Per effettuare chiamate HTTP all'API di Reddit.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Requisiti
 
-### `npm test`
+- Node.js e npm installati sulla macchina.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installazione e Avvio del Progetto
 
-### `npm run build`
+1. **Clona il repository:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```
+   git clone https://github.com/tuo-username/reddit-clone.git
+   cd reddit-clone
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Installa le dipendenze:**
+  ```
+  npm install
+  ```
+3. **Avvia l'applicazione:**
+  ```
+  npm start
+  ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Apri il browser**
+  e vai a http://localhost:3000 per visualizzare l'app.
 
-### `npm run eject`
+## Dettagli Implementativi
+- Chiamate Asincrone con createAsyncThunk
+  Le chiamate all'API di Reddit sono gestite con createAsyncThunk di Redux Toolkit, che permette di definire azioni asincrone facilmente e gestire automaticamente gli stati di   caricamento (pending, fulfilled, rejected). Questo approccio garantisce che l'interfaccia utente mostri correttamente lo stato di caricamento e eventuali errori di rete.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Filtraggio dei Post
+  I post vengono filtrati in base al termine di ricerca inserito dall'utente nella barra di ricerca. Quando viene selezionata una nuova subreddit, il termine di ricerca viene    azzerato per mostrare tutti i post della nuova categoria.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Personalizzazione
+  Puoi personalizzare le subreddit predefinite nel file App.js, modificando l'array subreddits:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  ```
+  const subreddits = ['reactjs', 'javascript', 'webdev', 'programming'];
+  ```
+  
+## Possibili Miglioramenti
+  - Ottenere le subreddit direttamente con una chiamata all'API
+  - Aggiungere una funzionalità per ordinare i post per popolarità o data.
+  - Implementare il supporto per l'autenticazione utente e l'interazione con i post (ad es., votare o commentare).
+  - Migliorare il design e rendere l'interfaccia più simile a Reddit.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contribuire
+Contributi e suggerimenti sono benvenuti! 
 
-## Learn More
+Per contribuire:
+-  Forka il progetto.
+-  Crea un branch per la tua funzionalità (git checkout -b feature/AmazingFeature).
+-  Commit delle modifiche (git commit -m 'Aggiungi una nuova funzionalità').
+-  Esegui un push sul branch (git push origin feature/AmazingFeature).
+-  Apri una pull request.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contatti
+Per ulteriori informazioni, puoi contattarmi tramite bortolotti.andrea93@gmial.com o tramite il mio profilo GitHub.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
