@@ -6,7 +6,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
     posts: [],
     searchTerm: "",
-    subReddit: "reactjs",
+    subreddit:"reactjs",
     status: "",
     error: null
 }
@@ -14,7 +14,7 @@ const initialState = {
 //creo la richiesta per ottenere i post di ogni slice dall'Api di reddit
 //e aggiungo la variabile per gestire la richiesta nello stato
 //poi introduco gli extrareducers per gestire la richiesta
-export const fetchPost = createAsyncThunk('posts/fetchPosts', async(selectedSubReddit)=>{
+export const fetchPost = createAsyncThunk('posts/fetchPost', async(selectedSubReddit)=>{
     const response = await fetch(`https://www.reddit.com/r/${selectedSubReddit}.json`);
     const json = await response.json();
     return json.data.children.map((child) => child.data);
@@ -32,7 +32,7 @@ const postsSlice = createSlice({
             state.searchTerm = action.payload;
         },
         setSubReddit: (state,action) => {
-            state.subReddit = action.payload;
+            state.subreddit = action.payload;
         }
     },
     extraReducers: (builder) =>{

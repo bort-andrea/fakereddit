@@ -1,15 +1,20 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { Post } from './features/Post';
 import { fetchPost, setSearchTerm, setSubReddit } from './features/postSlice';
+import { useEffect } from 'react';
 
 
 function App() {
   //importo dispatch per chiamare le azioni
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchPost("reactjs"));
+  },[]);
+  
   //funzione per cercare il termine inserito
   const ricerca = (termine) => {
     dispatch(setSearchTerm(termine));
@@ -22,6 +27,7 @@ function App() {
   }
 
   const subredditsElenco = ['reactjs','javascript','webdev','programming'];
+
   return (
     <div className="App">
 
