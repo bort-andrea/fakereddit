@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {fetchPost, setSearchTerm} from "./postSlice";
+import {fetchPost} from "./postSlice";
 
 export const Post = () => {
     //mi creo le variabili necessarie
