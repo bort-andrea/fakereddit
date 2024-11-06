@@ -8,6 +8,7 @@ export const Header = ({onSearch}) => {
     //che verrà definita in App.js
     const handleSearch = () =>{
         onSearch(searchTerm);
+        setSearchTerm("");
     };
     
     return(
@@ -18,7 +19,7 @@ export const Header = ({onSearch}) => {
                 type = "search" 
                 value = {searchTerm} 
                 onChange={(e) => setSearchTerm(e.target.value)} 
-                placeholder="Cerca nei post"/>
+                placeholder="Cerca nei titoli"/>
             {/*bottone con chiamata alla funzione*/}
             <button onClick={handleSearch}>Cerca</button>
         </header>

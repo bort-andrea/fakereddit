@@ -33,6 +33,7 @@ const postsSlice = createSlice({
         },
         setSubReddit: (state,action) => {
             state.subreddit = action.payload;
+            state.searchTerm = "";
         }
     },
     extraReducers: (builder) =>{
