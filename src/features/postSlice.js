@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 //lo stato iniziale di questa slice deve contenere
 //tutti i post, ricevere il termine di ricerca, e 
@@ -6,8 +6,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     posts: [],
     searchTerm: "",
-    subReddit: "reactjs"
+    subReddit: "reactjs",
+    status: "",
+    error: null
 }
+
+//creo la richiesta per ottenere i post di ogni slice dall'Api di reddit
+//e aggiungo la variabile per gestire la richiesta nello stato
+//poi introduco gli extrareducers per gestire la richiesta
+export const fetchPost = createAsyncThunk('posts/fetchPosts', async(selectedSubReddit)=>{
+    const response = await fetch(`https://www.reddit.com/r/${selectedSubReddit}.json`);
+    const json = await response.json();
+    return json.data.children.map((child) => child.data);
+});
 
 //come azioni ha l'impostazione delle varie voci dello stato
 const postsSlice = createSlice({
@@ -23,6 +34,17 @@ const postsSlice = createSlice({
         setSubReddit: (state,action) => {
             state.subReddit = action.payload;
         }
+    },
+    extraReducers: (builder) =>{
+        builder.addCase(fetchPost.pending, (state) => {
+            state.status = "loading";
+        }).addCase(fetchPost.rejected, (state, action) =>{
+            state.status = "failed";
+            state.error = action.error.message;
+        }).addCase(fetchPost.fulfilled, (state, action) =>{
+            state.status = "success";
+            state.posts = action.payload;
+        })
     }
 });
 
