@@ -22,7 +22,7 @@ export const Post = () => {
     );
 
     //gestisco la schermata in base agli stati della richiesta
-    if (status == 'loading'){
+    if (status === 'loading'){
         return (
             <>
             <div>Caricamento dei post da {subreddit} </div>
@@ -30,7 +30,7 @@ export const Post = () => {
         );
     }
     
-    if (status == 'failed'){
+    if (status === 'failed'){
         return (
             <>
             <div>Errore: {error}</div>
