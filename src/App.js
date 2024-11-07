@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import './App.css';
+import './style.css';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { Post } from './features/Post';
@@ -29,19 +29,22 @@ function App() {
   const subredditsElenco = ['reactjs','javascript','webdev','programming'];
 
   return (
-    <div className="App">
-
+    <body>
+    <div className="container">
+      
       {/*chiamo il componente header con il parametro onSearch in modo che venga
       richiamata la funzione di ricerca*/}
       <Header onSearch={ricerca}/>
-      
+      <div className="corpo">
       {/*chiamo il componente sidebar passandogli l'array di subreddits e la funzione
       di selezione da attivarsi al click di un elemento dell'elenco puntato */}
       <Sidebar subredditsEl={(subredditsElenco)} onClick={selezionaSubReddit}/>
 
       {/*Richiamo il componente post per visualizzarlo*/}
       <Post/>
+      </div>
     </div>
+    </body>
   );
 }
 

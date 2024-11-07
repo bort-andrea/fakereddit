@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchPost} from "./postSlice";
+import "../style.css";
 
 export const Post = () => {
     //mi creo le variabili necessarie
@@ -40,10 +41,10 @@ export const Post = () => {
 
     
     return(
-        <div>
+        <div className="posts-section">
             <h3>Post from - {subreddit}</h3>
             {filteredPosts.map((post) => (
-                <div key={post.id}>
+                <div key={post.id} className="post">
                     <h3>{post.title}</h3>
                     <p>{post.selftext}</p>
                 </div>                

@@ -1,6 +1,9 @@
+import "../style.css";
+
 export const Sidebar = ({subredditsEl, onClick}) =>{
     return(
-        <aside>
+        <aside className="sidebar_container">
+            <div className="sidebar">
             <h2>SubReddits</h2>
             <ul>
                 {/*mappo l'array delle subreddit passato da App.js e lo visualizzo in un elenco */}
@@ -11,6 +14,7 @@ export const Sidebar = ({subredditsEl, onClick}) =>{
                     </li>);
                 })}
             </ul>
+            </div>
         </aside>
     );
 }

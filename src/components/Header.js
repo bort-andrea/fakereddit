@@ -1,3 +1,4 @@
+import '../style.css';
 const { useState } = require("react")
 
 export const Header = ({onSearch}) => {
@@ -13,15 +14,19 @@ export const Header = ({onSearch}) => {
     
     return(
         <header>
-            <h1>fakeReddit</h1>
-            {/*input con evento per aggiornare la variabile del termine*/}
-            <input 
-                type = "search" 
-                value = {searchTerm} 
-                onChange={(e) => setSearchTerm(e.target.value)} 
-                placeholder="Cerca nei titoli"/>
-            {/*bottone con chiamata alla funzione*/}
-            <button onClick={handleSearch}>Cerca</button>
+            <div className="search-bar">
+                <h1>fakeReddit</h1>
+                {/*input con evento per aggiornare la variabile del termine*/}
+                <div className='input_field'>
+                <input 
+                    type = "search" 
+                    value = {searchTerm} 
+                    onChange={(e) => setSearchTerm(e.target.value)} 
+                    placeholder="Cerca nei titoli"/>
+                {/*bottone con chiamata alla funzione*/}
+                <button onClick={handleSearch}>Cerca</button>
+                </div>
+            </div>
         </header>
     );
 }
