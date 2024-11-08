@@ -58,7 +58,7 @@ Un'applicazione frontend realizzata con **React** e **Redux Toolkit** che riprod
   ```
   
 ## Possibili Miglioramenti
-  - Ottenere le subreddit direttamente con una chiamata all'API
+  - Ottenere le subreddit direttamente con una chiamata all'API  ---> SVILUPPATA
   - Aggiungere una funzionalità per ordinare i post per popolarità o data.
   - Implementare il supporto per l'autenticazione utente e l'interazione con i post (ad es., votare o commentare).
   - Migliorare il design e rendere l'interfaccia più simile a Reddit.
