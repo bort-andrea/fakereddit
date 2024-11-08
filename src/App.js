@@ -26,8 +26,6 @@ function App() {
     dispatch(fetchPost(selezione));
   }
 
-  const subredditsElenco = ['reactjs','javascript','webdev','programming'];
-
   return (
     <body>
     <div className="container">
@@ -38,7 +36,7 @@ function App() {
       <div className="corpo">
       {/*chiamo il componente sidebar passandogli l'array di subreddits e la funzione
       di selezione da attivarsi al click di un elemento dell'elenco puntato */}
-      <Sidebar subredditsEl={(subredditsElenco)} onClick={selezionaSubReddit}/>
+      <Sidebar onClick={selezionaSubReddit}/>
 
       {/*Richiamo il componente post per visualizzarlo*/}
       <Post/>
