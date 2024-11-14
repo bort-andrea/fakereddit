@@ -5,9 +5,9 @@ import "../style.css";
 import moment from 'moment';
 import {
     TiArrowUpOutline,
-    TiArrowUpThick,
+    //TiArrowUpThick,
     TiArrowDownOutline,
-    TiArrowDownThick,
+    //TiArrowDownThick,
     TiMessages,
   } from 'react-icons/ti';
 
